@@ -1059,6 +1059,8 @@ $.extend(Datepicker.prototype, {
 				month++;
 				day -= dim;
 			} while (true);
+		}else if(day === -1){ // to support month picker which dateFormat is 'yy-mm';
+			day = 1;
 		}
 		var date = this._daylightSavingAdjust(new Date(year, month - 1, day));
 		if (date.getFullYear() != year || date.getMonth() + 1 != month || date.getDate() != day)
